@@ -1167,6 +1167,11 @@ class Zappa(object):
         """
         Given an existing function ARN, update the configuration variables.
         """
+
+        ## Hack by Tom Wyatt
+        print("Waiting for Lambda to update...")
+        time.sleep(30)
+
         print("Updating Lambda function configuration..")
 
         if not vpc_config:
@@ -2103,7 +2108,7 @@ class Zappa(object):
 
         # build a fresh template
         self.cf_template = troposphere.Template()
-        self.cf_template.add_description('Automatically generated with Zappa')
+        # self.cf_template.add_description('Automatically generated with Zappa')
         self.cf_api_resources = []
         self.cf_parameters = {}
 
